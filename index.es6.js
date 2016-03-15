@@ -16,6 +16,7 @@ export default React.createClass({
     name: React.PropTypes.string,
     value: React.PropTypes.string,
     id: React.PropTypes.string,
+    label: React.PropTypes.string,
     'aria-labelledby': React.PropTypes.string,
     'aria-label': React.PropTypes.string
   },
@@ -69,6 +70,9 @@ export default React.createClass({
       'react-toggle--disabled': this.props.disabled
     })
 
+    var labelText = this.props.label
+    var label = labelText ? <span className='toggle-input-label'>{labelText}</span> : undefined
+
     return (
       <div className={classes} onClick={this.handleClick}>
         <div className="react-toggle-track">
@@ -78,6 +82,7 @@ export default React.createClass({
           <div className="react-toggle-track-x">
             <X />
           </div>
+          {label}
         </div>
         <div className="react-toggle-thumb"></div>
 
