@@ -5,7 +5,7 @@
   "main": "index.js",
   "style": "style.css",
   "scripts": {
-    "build": "babel index.es6.js --out-file index.js && babel x.es6.js --out-file x.js && babel check.es6.js --out-file check.js && webpack",
+    "build": "babel index.es6.js --out-file index.js && babel x.es6.js --out-file x.js && babel check.es6.js --out-file check.js ",
     "dev": "webpack --watch"
   },
   "keywords": [
@@ -25,9 +25,13 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "babel": "^4.7.16",
-    "babel-core": "^4.7.16",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^4.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.9.1",
     "mocha": "^2.2.1",
     "react": "*",
@@ -37,6 +41,7 @@
     "webpack-dev-server": "^1.7.0"
   },
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "classnames": "~2.2",
     "react-addons-pure-render-mixin": ">=0.14.0"
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default React.createClass({
+export default class extends React.Component {
   render() {
     return (
       <svg width="10" height="10" viewBox="0 0 10 10">
@@ -11,4 +11,4 @@ export default React.createClass({
       </svg>
     )
   }
-})
+}
