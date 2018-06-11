@@ -1,29 +1,36 @@
-var path = require('path')
+var path = require("path");
 
 module.exports = {
   entry: {
-    'example/bundle': './example/index'
+    "example/bundle": "./example/index"
   },
-  devtool: 'source-map',
+  devtool: "source-map",
 
   output: {
-    path: '.',
-    filename: '[name].js',
-    publicPath: '/example/'
+    path: ".",
+    filename: "[name].js",
+    publicPath: "/example/"
   },
 
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?experimental'},
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          presets: ["react"],
+          plugins: ["transform-class-properties"]
+        }
+      },
       { test: /\.css$/, loader: "style-loader!css-loader" }
     ]
   },
 
   devServer: {
-    contentBase: './example',
-    host: 'localhost',
+    contentBase: "./example",
+    host: "localhost",
     inline: true,
     info: false
   }
-}
-
+};
