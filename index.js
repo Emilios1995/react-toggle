@@ -1,6 +1,38 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _createReactClass = require("create-react-class");
+
+var _createReactClass2 = _interopRequireDefault(_createReactClass);
+
+var _classnames = require("classnames");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _check = require("./check");
+
+var _check2 = _interopRequireDefault(_check);
+
+var _x = require("./x");
+
+var _x2 = _interopRequireDefault(_x);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -8,14 +40,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import PropTypes from 'prop-types';
-import React from "react";
-import createReactClass from "create-react-class";
-import classNames from "classnames";
-import Check from "./check";
-import X from "./x";
-
-let _class = function (_React$PureComponent) {
+var _class = function (_React$PureComponent) {
   _inherits(_class, _React$PureComponent);
 
   function _class(props) {
@@ -23,7 +48,7 @@ let _class = function (_React$PureComponent) {
 
     var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
 
-    _this.handleClick = event => {
+    _this.handleClick = function (event) {
       var checkbox = _this.input;
       if (event.target !== checkbox) {
         event.preventDefault();
@@ -37,11 +62,11 @@ let _class = function (_React$PureComponent) {
       }
     };
 
-    _this.handleFocus = () => {
+    _this.handleFocus = function () {
       _this.setState({ hasFocus: true });
     };
 
-    _this.handleBlur = () => {
+    _this.handleBlur = function () {
       _this.setState({ hasFocus: false });
     };
 
@@ -69,41 +94,43 @@ let _class = function (_React$PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      var classes = classNames("react-toggle", {
+      var _this2 = this;
+
+      var classes = (0, _classnames2.default)("react-toggle", {
         "react-toggle--checked": this.state.checked,
         "react-toggle--focus": this.state.hasFocus,
         "react-toggle--disabled": this.props.disabled
       });
 
       var labelText = this.props.label;
-      var label = labelText ? React.createElement(
+      var label = labelText ? _react2.default.createElement(
         "span",
         { className: "toggle-input-label" },
         labelText
       ) : undefined;
 
-      return React.createElement(
+      return _react2.default.createElement(
         "div",
         { className: classes, onClick: this.handleClick },
-        React.createElement(
+        _react2.default.createElement(
           "div",
           { className: "react-toggle-track" },
-          React.createElement(
+          _react2.default.createElement(
             "div",
             { className: "react-toggle-track-check" },
-            React.createElement(Check, null)
+            _react2.default.createElement(_check2.default, null)
           ),
-          React.createElement(
+          _react2.default.createElement(
             "div",
             { className: "react-toggle-track-x" },
-            React.createElement(X, null)
+            _react2.default.createElement(_x2.default, null)
           ),
           label
         ),
-        React.createElement("div", { className: "react-toggle-thumb" }),
-        React.createElement("input", _extends({
-          ref: ref => {
-            this.input = ref;
+        _react2.default.createElement("div", { className: "react-toggle-thumb" }),
+        _react2.default.createElement("input", _extends({
+          ref: function ref(_ref) {
+            _this2.input = _ref;
           },
           onFocus: this.handleFocus,
           onBlur: this.handleBlur,
@@ -115,18 +142,18 @@ let _class = function (_React$PureComponent) {
   }]);
 
   return _class;
-}(React.PureComponent);
+}(_react2.default.PureComponent);
 
 _class.displayName = "Toggle";
 _class.propTypes = {
-  checked: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  onChange: PropTypes.func,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
-  "aria-labelledby": PropTypes.string,
-  "aria-label": PropTypes.string
+  checked: _propTypes2.default.bool,
+  defaultChecked: _propTypes2.default.bool,
+  onChange: _propTypes2.default.func,
+  name: _propTypes2.default.string,
+  value: _propTypes2.default.string,
+  id: _propTypes2.default.string,
+  label: _propTypes2.default.string,
+  "aria-labelledby": _propTypes2.default.string,
+  "aria-label": _propTypes2.default.string
 };
-export default _class;
+exports.default = _class;
